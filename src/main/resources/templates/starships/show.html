@@ -1,0 +1,27 @@
+
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+  <link th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<h1>STARSHIPS Show Page!</h1>
+
+  <div class = "starships" th:object="${starship}">
+    <dl>
+      <dt>Name</dt>
+      <dd th:text="*{name}"></dd>
+      <dt>Description</dt>
+      <dd th:text="*{description}" class="description"></dd>
+      <dt>Fuel Capacity in TeraLitres</dt>
+      <dt th:text="*{fuelCapacity + ' LT, ' + fuelGauge}"></dt>
+      <dd th:text="*{fuelCapacity lt 300 ? 'LOW' : fuelCapacity le 700 ? 'AVERAGE' : 'HIGH'}"></dd>
+
+
+      <a th:href="'/starships'">Go Back</a>
+    </dl>
+  </div>
+
+
+</body>
+</html>
